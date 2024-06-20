@@ -105,19 +105,20 @@ const Index = () => {
             </CheckboxGroup>
           </SimpleGrid>
         </Box>
-          {filteredProducts.map(product => (
-            <Box key={product.id} borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
-              <Image src={product.image} alt={product.name} mb={4} />
-              <Heading as="h3" size="md" mb={2}>{product.name}</Heading>
-              <Text mb={2}>{product.description}</Text>
-              <Text fontWeight="bold" mb={4}>${product.price}</Text>
-              <Text mb={4}>Rating: {product.rating} Stars</Text>
-              <Button colorScheme="teal">Add to Cart</Button>
-            </Box>
-          ))}
-        </SimpleGrid>
-      </VStack>
-    </Container>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            {filteredProducts.map(product => (
+              <Box key={product.id} borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
+                <Image src={product.image} alt={product.name} mb={4} />
+                <Heading as="h3" size="md" mb={2}>{product.name}</Heading>
+                <Text mb={2}>{product.description}</Text>
+                <Text fontWeight="bold" mb={4}>${product.price}</Text>
+                <Text mb={4}>Rating: {product.rating} Stars</Text>
+                <Button colorScheme="teal">Add to Cart</Button>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </VStack>
+      </Container>
   );
 };
 
